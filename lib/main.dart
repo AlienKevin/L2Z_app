@@ -1,3 +1,5 @@
+import 'package:draw_graph/draw_graph.dart';
+import 'package:draw_graph/models/feature.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:spartahack8/constants.dart';
@@ -53,46 +55,62 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Card(
-                  child: Column(
-                // mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ListTile(
-                    title: Text('Business Conversation'),
-                    subtitle: Row(children: [
-                      Text("Finished 20%"),
-                      Spacer(),
-                      Text("20/100 words"),
-                    ]),
-                  ),
-                  LinearPercentIndicator(
-                    lineHeight:
-                        Theme.of(context).textTheme.bodyLarge!.fontSize!,
-                    percent: 0.2,
-                    backgroundColor: lightGray,
-                    progressColor: Theme.of(context).primaryColor,
-                  ),
-                  SizedBox(
-                      height: Theme.of(context).textTheme.bodyLarge!.fontSize!),
-                  TextButton(
-                    onPressed: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Entry()),
-                      )
-                    },
-                    child: Text("5 words left for today"),
-                  ),
-                  SizedBox(height: 10)
-                ],
-              )),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Card(
+                    child: Column(
+                  // mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      title: Text('Business Conversation'),
+                      subtitle: Row(children: [
+                        Text("Finished 20%"),
+                        Spacer(),
+                        Text("20/100 words"),
+                      ]),
+                    ),
+                    LinearPercentIndicator(
+                      lineHeight:
+                          Theme.of(context).textTheme.bodyLarge!.fontSize!,
+                      percent: 0.2,
+                      backgroundColor: lightGray,
+                      progressColor: Theme.of(context).primaryColor,
+                    ),
+                    SizedBox(
+                        height:
+                            Theme.of(context).textTheme.bodyLarge!.fontSize!),
+                    TextButton(
+                      onPressed: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Entry()),
+                        )
+                      },
+                      child: Text("5 words left for today"),
+                    ),
+                    SizedBox(height: 10)
+                  ],
+                )),
+                SizedBox(height: 40),
+                Text("Daily Vocab Goals"),
+                LineGraph(
+                  features: [
+                    Feature(
+                      title: "Words",
+                      color: Colors.blue,
+                      data: [0.2, 0.8, 1, 0.7, 0.6],
+                    ),
+                  ],
+                  size: Size(500, 200),
+                  labelX: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                  labelY: ['2', '4', '6', '8', '10'],
+                  graphOpacity: 0.2,
+                  verticalFeatureDirection: true,
+                )
+              ]),
         ),
       ),
     );

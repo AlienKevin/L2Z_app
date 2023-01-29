@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   percent_indicator: ^4.2.2
   chat_bubbles: ^1.4.1
+  draw_graph: ^1.0.0
 
 dev_dependencies:
   flutter_test:
