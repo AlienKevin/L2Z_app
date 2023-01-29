@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:spartahack8/constants.dart';
+
+import 'entry.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
                   padding:
                       MaterialStateProperty.all(const EdgeInsets.all(10.0)),
                   textStyle: MaterialStateProperty.all(
-                      Theme.of(context).textTheme.labelLarge!),
+                      Theme.of(context).textTheme.bodyLarge!),
                   backgroundColor:
                       MaterialStateProperty.all(Theme.of(context).primaryColor),
                   foregroundColor:
@@ -69,20 +72,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   LinearPercentIndicator(
                     lineHeight:
-                        Theme.of(context).textTheme.labelMedium!.fontSize!,
+                        Theme.of(context).textTheme.bodyLarge!.fontSize!,
                     percent: 0.2,
-                    backgroundColor: Colors.grey,
-                    progressColor: Colors.blue,
+                    backgroundColor: lightGray,
+                    progressColor: Theme.of(context).primaryColor,
                   ),
                   SizedBox(
-                      height:
-                          Theme.of(context).textTheme.labelMedium!.fontSize!),
+                      height: Theme.of(context).textTheme.bodyLarge!.fontSize!),
                   TextButton(
                     onPressed: () => {
-                      // go to vocab page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Entry()),
+                      )
                     },
-                    child: Text("Continue"),
+                    child: Text("5 words left for today"),
                   ),
+                  SizedBox(height: 10)
                 ],
               )),
             ),
