@@ -1,16 +1,13 @@
-# spartahack8
+# L2Z
 
-SpartaHack 8 Project 2023
+Our app, L2Z, helps L2 English learners grow their mastery of the language in whichever area they most need to learn. We found that L2 learners don't need to have perfect grammar and vocabulary but have specific use cases in their daily lives that they need to use English. We help them reach their goals in less time by generating context-based vocabulary lessons using natural language processing. Based on a provided context, we are able to generate a list of vocabulary that is heavily used within that context that they may not be familiar with. We then form these words into sentences along with words they already know in the context they provided to help their learning.
 
-## Getting Started
+# Gallery
+## Home screen
+![home](media/home.png)
 
-This project is a starting point for a Flutter application.
+## Study screen
+![study](media/study.png)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Review screen
+![review](media/review.png)
