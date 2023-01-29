@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
 import 'constants.dart';
+import 'review.dart';
 
 class Example {
   List<String> conversations;
@@ -51,7 +52,7 @@ class _EntryState extends State<Entry> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Words"),
+        title: Text("Study"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -76,6 +77,10 @@ class _EntryState extends State<Entry> {
               widget.currentConversationIndex = 0;
               if (widget.currentExampleIndex >= widget.examples.length - 1) {
                 // TODO: move to next word
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Review(0)),
+                );
               } else {
                 widget.currentExampleIndex += 1;
               }
