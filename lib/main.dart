@@ -1,17 +1,18 @@
 import 'package:draw_graph/draw_graph.dart';
 import 'package:draw_graph/models/feature.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:spartahack8/constants.dart';
 
 import 'entry.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -48,6 +49,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late FlutterTts tts;
+
+  @override
+  void initState() {
+    initTts();
+  }
+
+  void initTts() async {
+    tts = FlutterTts();
+    // await tts.setSharedInstance(true);
+    await tts.setLanguage("en-US");
+    await tts.setSpeechRate(1.0);
+    await tts.setVolume(1.0);
+    await tts.setPitch(1.0);
+    await tts.isLanguageAvailable("en-US");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () => {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Entry()),
+                          MaterialPageRoute(builder: (context) => Entry(tts)),
                         )
                       },
                       child: Text("5 words left for today"),

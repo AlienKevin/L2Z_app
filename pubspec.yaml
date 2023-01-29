@@ -39,6 +39,7 @@ dependencies:
   percent_indicator: ^4.2.2
   chat_bubbles: ^1.4.1
   draw_graph: ^1.0.0
+  flutter_tts: ^3.6.3
 
 dev_dependencies:
   flutter_test:
